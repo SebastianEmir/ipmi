@@ -328,15 +328,18 @@ noTint();
       
 void mousePressed(){ //condicional para activar el boton
  if (pantalla == 0 && mouseX > 220 && mouseX < 420 && mouseY > 370 && mouseY < 430) {
-  transicionActiva = true;{
+  transicionActiva = true;
  }
- if(pantalla == 6){
+
+ // se regresa con hacer click en cualquier momesto
+ if (pantalla >= 1){
    pantalla = 0;
+
    ussMenu = 255;
    transicionActiva = false;
    finalizado = false;
    cronometro = 0;
    yAnim = 500;
+   alphaP1 = 255;
  }
-}
 }
