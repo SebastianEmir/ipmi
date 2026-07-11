@@ -79,13 +79,13 @@ boolean esPar(int a, int b) {
     return false;
   }
 }
-// Mouse
+// funcion que cuando hagas clilk con el mouse cambie de color
 void mousePressed() {
 
   cambiarColor = !cambiarColor;
   ruido = random(100);
 }
-// Teclado
+// funcion que cuando uses la tecla G gire la imagen y la tecla R reinicie los valores originales
 void keyPressed() {
 
   if (key=='r' || key=='R') {
