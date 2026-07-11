@@ -90,13 +90,24 @@ void dibujarCelda(float x, float y, float w, float h, float brillo, boolean par)
   
   // El rectángulo interno oscuro arranca pegado a la izquierda (x)
   if (par) {
+    // 1. Bloque gris sólido base original
     fill(80);
     rect(x, y, w * 0.65, h); 
+    
+    // 2. AGREGADO: Degradado suave al final del rectángulo oscuro para difuminarlo
+    float inicioDegradado = x + (w * 0.65);
+    int anchoDegradado = 6; // Ancho en píxeles de la transición
+    
+    for (int i = 0; i < anchoDegradado; i++) {
+      // Va disminuyendo la opacidad (alfa) de 255 (sólido) a 0 (invisible)
+      float alfa = map(i, 0, anchoDegradado, 255, 0);
+      fill(80, alfa);
+      rect(inicioDegradado + i, y, 1, ceil(h));
+    }
   }
 }
 
 // FUNCIÓN PROPIA CON PARÁMETROS QUE RETORNA UN VALOR (boolean)
-// CORREGIDO: Cambiado a != 0 para que la primera celda empiece clara igual que en la foto
 boolean esPar(int a, int b) {
   if ((a + b) % 2 != 0) {
     return true;
